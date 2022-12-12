@@ -1,0 +1,24 @@
+= Uberspace account info
+
+
+The script retrieves account information for one or more link:https://uberspace.de/en/[uberspace] accounts, such as the current balance, registered domains, and desired price. The username and password for each account can be provided as environment variables, or they can be entered manually by the user when the script is run. The retrieved account information is saved to a CSV file, which can be used for further analysis or reporting.
+
+To use the script, you need to set the UBERSPACE_USERNAME and UBERSPACE_PASSWORD environment variables to a list of strings containing the username and password for each account that you want to retrieve information for. For example:
+
+[source,bash]
+----
+export UBERSPACE_USERNAME='["USERNAME1", "USERNAME2", "USERNAME3"]'
+export UBERSPACE_PASSWORD='["PASSWORD1", "PASSWORD2", "PASSWORD3"]'
+----
+If the environment variables are not set, the script will prompt the user to enter the username and password for the account that they want to retrieve information for.
+
+Once the account information has been retrieved, the script saves it to a CSV file in the following format:
+
+[source,csv]
+----
+guthaben,wunschpreis,domains_webserver,domains_mailserver,hostname,ipv4,username
+<current_amount>,<price>,<web_domains>,<mail_domains>,<host_fqdn>,<host_ipv4>,<login>
+...
+----
+
+The CSV file can then be opened in a spreadsheet program or imported into a database for further analysis or reporting.
